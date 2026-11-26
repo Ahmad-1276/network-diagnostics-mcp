@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "network-diagnostics-mcp"
+version = "0.1.0"
+description = "MCP server for network interfaces, DNS lookups, ping, and TCP port checks."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ahmad" }]
+keywords = ["mcp", "model-context-protocol", "networking", "diagnostics", "dns", "ai-agents"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "mcp>=1.20.0,<2",
+  "psutil>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Ahmad-1276/network-diagnostics-mcp"
+Repository = "https://github.com/Ahmad-1276/network-diagnostics-mcp"
+Issues = "https://github.com/Ahmad-1276/network-diagnostics-mcp/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+network-diagnostics-mcp = "network_diagnostics_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/network_diagnostics_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
